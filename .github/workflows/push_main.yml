@@ -55,3 +55,18 @@ jobs:
         with:
           name: MyApp
           path: build/app/outputs/flutter-apk/app-release.apk
+          artifact-path: release/app-release.apk
+  buildForiOS:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2.8.0
+      
+      - name: Build for iOs
+        run: flutter build ios
+      - name: upload iOs
+        uses: actions/upload-artifact@v2
+        with:
+          name: MyApp
+          path: build/ios
+          artifact-path: release/ios
