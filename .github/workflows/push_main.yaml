@@ -47,17 +47,14 @@ jobs:
       - name: Run flutter test
         run: flutter test
         
-      - name: Build APK & move to release
-        run: |
-          flutter build apk
-          mkdir -p release
-          mv build/app/outputs/flutter-apk/app-release.apk release/
+      - name: Build APK
+        run: flutter build apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
           name: MyApp
-          path: release/app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
 #  buildForiOS:
 #    runs-on: macos-latest
