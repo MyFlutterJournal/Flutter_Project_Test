@@ -58,12 +58,12 @@ jobs:
           artifact-path: release/app-release.apk
   buildForiOS:
     runs-on: macos-latest
-      steps:
-        - name: Build for iOs
-          run: flutter build ios
-        - name: upload iOs
-          uses: actions/upload-artifact@v2
-          with:
-            name: MyApp
-            path: build/ios
-            artifact-path: release/ios
+    steps:
+      - name: Build for iOs
+        run: flutter build ios
+      - name: upload iOs
+        uses: actions/upload-artifact@v2
+        with:
+          name: MyApp
+          path: build/ios
+          artifact-path: release/ios
