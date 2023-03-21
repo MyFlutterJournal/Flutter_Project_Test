@@ -59,6 +59,9 @@ jobs:
   buildForiOS:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2.8.0
+      
       - name: Build for iOs
         run: flutter build ios
       - name: upload iOs
